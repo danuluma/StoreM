@@ -14,7 +14,7 @@
     "build": "webpack --mode production",
     "server": "nodemon server.js --exec babel-node",
     "heroku-postbuild": "npm install",
-    "start": "babel-node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,7 @@
     "nodemon": "1.11.0"
   },
   "dependencies": {
+    "express": "^4.16.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "bootstrap": "^4.3.1",
