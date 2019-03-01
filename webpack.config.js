@@ -41,7 +41,6 @@ module.exports = {
         test: /\.(jpe?g|png|gif)$/,
         use: [
           {
-            /* inline if smaller than 10 KB, otherwise load as a file */
             loader: "url-loader",
             options: {
               limit: 10000
@@ -56,10 +55,10 @@ module.exports = {
     ]
   },
   plugins: [htmlWebpackPlugin],
-  devtool: "cheap-module-eval-source-map", // this helps to browser to point to the exact file in the console, helps in debug
+  devtool: "cheap-module-eval-source-map",
   devServer: {
     // contentBase: path.join(__dirname, "src"),
     contentBase: "/src",
-    historyApiFallback: true // this prevents the default browser full page refresh on form submission and link change
+    historyApiFallback: true
   }
 };
