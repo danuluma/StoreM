@@ -2,19 +2,13 @@
   "name": "storem",
   "version": "1.0.0",
   "description": "Store manager",
-  "main": "/src/index.js",
-  "engines": {
-    "node": "^10.15.1"
-  },
+  "main": "index.js",
   "scripts": {
-    "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./src -s",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
     "start-dev": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "server": "nodemon server.js --exec babel-node",
-    "heroku-postbuild": "npm install",
-    "start": "node server.js"
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -31,7 +25,8 @@
     "url": "https://github.com/danuluma/StoreM/issues"
   },
   "homepage": "https://github.com/danuluma/StoreM#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
@@ -42,12 +37,6 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
-    "babel": "6.23.0",
-    "babel-cli": "6.26.0",
-    "nodemon": "1.11.0"
-  },
-  "dependencies": {
-    "express": "^4.16.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "bootstrap": "^4.3.1",
