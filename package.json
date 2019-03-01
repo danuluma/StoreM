@@ -4,11 +4,13 @@
   "description": "Store manager",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "start-dev": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "heroku-postbuild": "webpack -p"
+    "heroku-postbuild": "node server.js"
   },
   "repository": {
     "type": "git",
