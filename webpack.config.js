@@ -55,5 +55,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlWebpackPlugin]
+  plugins: [htmlWebpackPlugin],
+  devtool: "cheap-module-eval-source-map", // this helps to browser to point to the exact file in the console, helps in debug
+  devServer: {
+    // contentBase: path.join(__dirname, "src"),
+    contentBase: "/src",
+    historyApiFallback: true // this prevents the default browser full page refresh on form submission and link change
+  }
 };
