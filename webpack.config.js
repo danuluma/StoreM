@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
@@ -57,8 +58,8 @@ module.exports = {
   plugins: [htmlWebpackPlugin],
   devtool: "cheap-module-eval-source-map",
   devServer: {
-    // contentBase: path.join(__dirname, "src"),
-    contentBase: "/src",
+    contentBase: path.join(__dirname, "src"),
+    // contentBase: "/src",
     historyApiFallback: true
   }
 };
