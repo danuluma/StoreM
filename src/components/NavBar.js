@@ -4,15 +4,16 @@ import { Navbar, Form } from "react-bootstrap";
 
 class DannsNav extends Component {
   render() {
+    // return <div> KKK</div>;
     return (
-      <Navbar>
-        <Navbar.Brand href="#home">Danns Fast Foods</Navbar.Brand>
+      <Navbar className="nav-bar">
+        <Navbar.Brand>
+          <NavLink to="/">Danns Fast Foods</NavLink>
+        </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          {/* <NavLink to="/login">Login</NavLink> */}
-          {/* <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
-          </Navbar.Text> */}
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Sign Up</NavLink>
         </Navbar.Collapse>
       </Navbar>
     );

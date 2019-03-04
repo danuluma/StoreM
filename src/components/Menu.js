@@ -6,7 +6,7 @@ class Menu extends Component {
     this.state = {};
   }
   render() {
-    return <div>Menu Coming soon</div>;
+    return <div>Menu Coming soon ala</div>;
   }
 }
 
