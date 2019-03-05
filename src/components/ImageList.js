@@ -44,8 +44,7 @@ const ImageList = props => {
       }
     ]
   };
-  data = props.data.length > 1 ? props.data : manualBackup;
-  const results = Object.values(data);
+  const results = Object.values(manualBackup);
 
   if (results[0]) {
     let images = results[0].map(image => (
