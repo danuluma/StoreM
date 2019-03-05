@@ -32,8 +32,8 @@ module.exports = {
               modules: true,
               importLoaders: 1,
               localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
+              sourceMap: true
+              //   minimize: true
             }
           }
         ]
@@ -59,7 +59,6 @@ module.exports = {
   devtool: "cheap-module-eval-source-map",
   devServer: {
     contentBase: path.join(__dirname, "src"),
-    // contentBase: "/src",
     historyApiFallback: true
   }
 };
