@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
@@ -31,8 +32,8 @@ module.exports = {
               modules: true,
               importLoaders: 1,
               localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
+              sourceMap: true
+              //   minimize: true
             }
           }
         ]
@@ -41,7 +42,6 @@ module.exports = {
         test: /\.(jpe?g|png|gif)$/,
         use: [
           {
-            /* inline if smaller than 10 KB, otherwise load as a file */
             loader: "url-loader",
             options: {
               limit: 10000
@@ -55,5 +55,10 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlWebpackPlugin]
+  plugins: [htmlWebpackPlugin],
+  devtool: "cheap-module-eval-source-map",
+  devServer: {
+    contentBase: path.join(__dirname, "src"),
+    historyApiFallback: true
+  }
 };

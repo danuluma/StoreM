@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 class Login extends Component {
   constructor(props) {
@@ -10,13 +11,16 @@ class Login extends Component {
       password: ""
     };
   }
-  submitForm(e) {
+  handleSubmit = e => {
     e.preventDefault();
-  }
+    toast.success("Signed Up successfully", {
+      autoClose: 5000
+    });
+  };
   render() {
     return (
       <React.Fragment>
-        <Form>
+        <Form className="form col-md-4 offset-md-4">
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
@@ -27,7 +31,7 @@ class Login extends Component {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
-          <Button variant="primary" type="submit" onClick={this.submitForm}>
+          <Button variant="primary" type="submit" onClick={this.handleSubmit}>
             Submit
           </Button>
         </Form>
