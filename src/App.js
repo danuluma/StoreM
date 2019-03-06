@@ -11,6 +11,13 @@ const App = () => {
     <BrowserRouter>
       <React.Fragment>
         <NavBar />
+        {/* <div className="alert alert-success alert-dismissible">
+          <a href="#" className="close" data-dismiss="alert" aria-label="close">
+            &times;
+          </a>
+          <strong>Success!</strong> This alert box could indicate a successful
+          or positive action.
+        </div> */}
         <Container className="App">
           <Switch>
             <Route exact path="/" component={Menu} />

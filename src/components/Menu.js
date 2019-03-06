@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import Unsplash from "unsplash-js";
 import ImageList from "./ImageList";
+const Unsplash = require("unsplash-js").default;
+
+const unsplash = new Unsplash({
+  applicationId: process.env.APP_ID,
+  secret: process.env.SECRET
+});
 
 class Menu extends Component {
   constructor() {
@@ -11,15 +16,24 @@ class Menu extends Component {
   }
 
   componentDidMount() {
-    fetch("http://www.splashbase.co/api/v1/images/search?query=food")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ images: data });
-      })
-      .catch(err => {});
+    unsplash.search
+      .photos("food", 1, 30)
+      .then(data => data.json())
+      .then(resp => {
+        let imageList = resp.results;
+        this.setState({ images: imageList });
+      });
   }
 
   render() {
+    if (localStorage.getItem("alert")) {
+      alertify.success("Signed in successfully");
+      localStorage.removeItem("alert");
+    }
+    if (localStorage.getItem("logout")) {
+      alertify.success("Signed out successfully");
+      localStorage.removeItem("logout");
+    }
     return (
       <div>
         <div className="main-header">
